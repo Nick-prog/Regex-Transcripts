@@ -19,7 +19,7 @@ class Reader():
         Regex pattern finder for all known courses possible.
         Return list.
         '''
-        return re.findall(r'\b(?:\d{8}|\d{5,6}[A-Z]{2,3}\d{0,1}|[A-Z]{1,3}\d{5,7})\s.{10}|(?:1111|1112)\s{5}\/.{10}', text)
+        return re.findall(r'\b(?:\d{8}|\d{5,6}[A-Z]{2,3}\d{0,1}|[A-Z]{1,3}\d{3,7})\s.{10}|(?:1111|1112)\s{5}\/.{10}', text)
     
     def get_grades(self,text):
         '''
