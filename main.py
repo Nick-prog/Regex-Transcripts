@@ -24,7 +24,7 @@ def run(file, download):
         raise ValueError('Regex value error, cannot find all corresponding courses and grades.')
 
     unique_list = reader.get_unique_list(reader.courses_list)
-    hash_list = reader.get_hash_list(unique_list, reader.courses_list)
+    # hash_list = reader.get_hash_list(unique_list, reader.courses_list)
 
     hash_grade = reader.get_hashed_grade_list(unique_list, reader.courses_list)
 
