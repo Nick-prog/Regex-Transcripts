@@ -20,11 +20,16 @@ class Process(object):
             total = 0
             skip_flag = 0 # prevent unneccesary dividing when averaging
             for values in items: # hashed items in given tuples
-                if values == 'IP': # In progress class, no value. Skip.
+                if values == 'IP' or values == "I": # In progress class, no value. Skip.
                     skip_flag = skip_flag + 1
                     pass
-                elif values == 'P': # Passed class, set to 85.
+                elif values == 'P' or values == 'Pr': # Passed class, set to 85.
                     total = total + 85
+                elif values == 'W': # Waived class, set to 0. Find out actual grade from HS.
+                    skip_flag = skip_flag + 1
+                    pass
+                elif values == 'APr': # Passed class, set to 75.
+                    total = total + 75
                 else:
                     total = int(values) + total
 

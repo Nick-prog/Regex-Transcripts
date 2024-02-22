@@ -26,7 +26,7 @@ class Reader():
         Regex pattern finder for all known grades possible.
         Return list.
         '''
-        return re.findall(r'(?:0\.0 0\.0|0\.5 0\.5|1\.0 1\.0|1\.5 1\.5|2\.0 2\.0).*?(\d{1,3}|P)|\s(IP)\s', text)
+        return re.findall(r'(?:0\.0 0\.0|0\.5 0\.5|1\.0 1\.0|1\.5 1\.5|2\.0 2\.0).*?(\d{1,3}|I|P|APr|Pr|W)|\s(IP)\s', text)
 
     def read_page(self, select):
         '''
