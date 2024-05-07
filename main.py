@@ -8,16 +8,21 @@ import pandas as pd
 import numpy as np
 from tkinter.filedialog import askopenfilename
 from pathlib import Path
-from pprint import pprint
 
-def run(file, download):
+def run(file: str, download: str) -> str:
+    """ Main run function created to process a given PDF file through
+    several classes and methods.
+
+    :param file: string of file path
+    :type file: str
+    :param download: string of download path
+    :type file: str
+    :return: string of created xlsx file's download path
+    :rtype: str
+    """
 
     reader = core.Reader(file)
     reader.read_all()
-
-    # pprint(reader.courses_list)
-    # pprint(reader.grades_list)
-    # print(len(reader.courses_list), len(reader.grades_list))
 
     if len(reader.courses_list) != len(reader.grades_list):
         print(len(reader.courses_list), len(reader.grades_list))

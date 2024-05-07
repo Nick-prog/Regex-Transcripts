@@ -1,22 +1,28 @@
 import core
-from pprint import pprint
 
 class Process(object):
-    '''
-    Class in charge of processing the hash list given to it and converting it accordingly.
-    '''
 
-    def __init__(self, scale):
-        self.scale = scale # GPA conversion selector
+    def __init__(self, scale: int):
+        """Class in charge of processing the hash list given to it and converting it accordingly.
 
-    def cal_avg(self, list):
-        '''
-        Calculates average grades from given tuple hash lists. Returns an avg_list, rounds all values.
-        Return list.
-        '''
+        :param scale: GPA conversion selector
+        :type scale: int
+        """
+        
+        self.scale = scale
+
+    def cal_avg(self, _list: list) -> list:
+        """Calculates average grades from given tuple hash lists.
+
+        :param _list: hashed list of values (grades)
+        :type _list: list
+        :return: list of values averaged and rounded down
+        :rtype: list
+        """
+
         avg_list = [] # empty list
 
-        for items in list: # hashed tuples in given list
+        for items in _list: # hashed tuples in given list
             total = 0
             skip_flag = 0 # prevent unneccesary dividing when averaging
             for values in items: # hashed items in given tuples
@@ -42,15 +48,19 @@ class Process(object):
 
         return avg_list
     
-    def cal_gpa(self, list):
-        '''
-        Automatically processes avg_list through the Class GPAT. Returns a gpa_list, containing values between 0-4.0.
-        Return list.
-        '''
+    def cal_gpa(self, _list: list) -> list:
+        """Automatically processes avg_list through the Class GPAT.
+
+        :param list: hashed list of values (averaged grades)
+        :type list: list
+        :return: list of values converted via GPA scale
+        :rtype: list
+        """
+
         gpa_list = [] # empty list
 
         if self.scale == 4: # 4.0 scale
-            for item in list:
+            for item in _list:
                 g = core.GPAT(int(item), self.scale) # returns a converted avg into gpa based on scale. Ex: 90 -> 3.5
                 gpa_list.append(g.conv_value())
 

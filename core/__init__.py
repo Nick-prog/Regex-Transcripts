@@ -4,7 +4,6 @@ from .grades import * # Class GPAT created with methods for converting extracted
 
 from datetime import date
 
-__version__ = 1.1
 __title__ = "Regex Transcripts"
 __author__ = 'Nickolas Rodriguez'
 __date__ = f'{date.today()}'
